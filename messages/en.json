@@ -1,0 +1,18 @@
+{
+  "common": {
+    "brandName": "Smiljan",
+    "tagline": "Classic with character, warm and full of colour."
+  },
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "cerita": "Our Story",
+    "lokasi": "Location",
+    "galeri": "Gallery",
+    "reservasi": "Reservations",
+    "kontak": "Contact",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "switchLocale": "Switch language"
+  }
+}
