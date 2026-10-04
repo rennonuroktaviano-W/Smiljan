@@ -1,7 +1,38 @@
 {
   "meta": {
-    "title": "Location & hours",
-    "description": "Address, opening hours and facilities at Smiljan."
+    "title": "Location & Opening Hours",
+    "description": "Address, map, opening hours and facilities for Smiljan. Open seven days a week."
   },
-  "placeholder": "This page is being written."
+  "hero": {
+    "eyebrow": "Location",
+    "title": "Come, sit, and stay awhile"
+  },
+  "address": {
+    "title": "Address",
+    "directions": "Get directions",
+    "copyAddress": "Copy address"
+  },
+  "map": {
+    "title": "Map of Smiljan",
+    "loading": "Map showing the location of Smiljan"
+  },
+  "hours": {
+    "title": "Opening hours",
+    "status": "Status",
+    "note": "Hours can change on public holidays. Message us first if you are coming on one."
+  },
+  "facilities": {
+    "eyebrow": "Facilities",
+    "title": "What you will find here",
+    "items": {
+      "wifi": "Wi-Fi",
+      "power": "Power outlets at every table",
+      "parking": "Parking",
+      "outdoor": "Outdoor seating",
+      "smokingArea": "Smoking area",
+      "workFriendly": "Good for working",
+      "airConditioned": "Air conditioned",
+      "halal": "Halal"
+    }
+  }
 }

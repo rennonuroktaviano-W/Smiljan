@@ -1,7 +1,38 @@
 {
   "meta": {
     "title": "Lokasi & Jam Buka",
-    "description": "Alamat, jam buka, dan fasilitas Smiljan."
+    "description": "Alamat, peta, jam buka, dan fasilitas Smiljan. Buka tujuh hari seminggu."
   },
-  "placeholder": "Halaman ini sedang ditulis."
+  "hero": {
+    "eyebrow": "Lokasi",
+    "title": "Datang, duduk, dan menetap"
+  },
+  "address": {
+    "title": "Alamat",
+    "directions": "Petunjuk arah",
+    "copyAddress": "Salin alamat"
+  },
+  "map": {
+    "title": "Peta Smiljan",
+    "loading": "Peta lokasi Smiljan"
+  },
+  "hours": {
+    "title": "Jam buka",
+    "status": "Status",
+    "note": "Jam buka bisa berubah pada hari libur. Untuk kepastian, hubungi kami dulu."
+  },
+  "facilities": {
+    "eyebrow": "Fasilitas",
+    "title": "Yang bisa Anda temukan di sini",
+    "items": {
+      "wifi": "Wi-Fi",
+      "power": "Colokan di tiap meja",
+      "parking": "Parkir",
+      "outdoor": "Area luar",
+      "smokingArea": "Area Rokok",
+      "workFriendly": "Cocok untuk bekerja",
+      "airConditioned": "Ber-AC",
+      "halal": "Halal"
+    }
+  }
 }
