@@ -2,7 +2,6 @@ import { ArrowUpRight, Mail, MapPin } from 'lucide-react';
 import { getTranslations, getLocale } from 'next-intl/server';
 
 import { site, socialProof } from '@/data/site';
-import { cafeSchema } from '@/lib/schema';
 import { whatsappLink } from '@/lib/whatsapp';
 import { Link } from '@/i18n/navigation';
 
@@ -151,13 +150,6 @@ export async function Footer() {
           SMILJAN
         </p>
       </div>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(cafeSchema()).replace(/</g, '\\u003c')
-        }}
-      />
     </footer>
   );
 }

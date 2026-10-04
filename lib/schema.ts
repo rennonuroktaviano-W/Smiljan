@@ -29,8 +29,14 @@ export function toOpeningHoursSpecification(
     }));
 }
 
-/** Structured data for the whole site (PRD 7 — `CafeOrCoffeeShop`). */
-export function cafeSchema() {
+/**
+ * Structured data for the whole site (PRD 7 — `CafeOrCoffeeShop`).
+ *
+ * `description` is passed in rather than hardcoded: the JSON-LD is emitted from
+ * the root layout, which has no page-level locale context, and an Indonesian
+ * description on the English site would be wrong for both readers and crawlers.
+ */
+export function cafeSchema(description?: string) {
   const socialUrls: string[] = [
     site.social.instagram,
     site.social.tiktok,
@@ -48,7 +54,8 @@ export function cafeSchema() {
     name: site.name,
     legalName: site.legalName,
     description:
-      'Smiljan adalah coffee shop dengan karakter klasik yang berkelas, menyajikan kopi pilihan yang diseduh manual dengan suasana hangat dan penuh warna.',
+      description ??
+      'Smiljan is a coffee shop with genuine character, serving manually brewed coffee in a warm, colourful room.',
     url: site.url,
     telephone: `+${whatsappDigits}`,
     email: site.email,
@@ -73,8 +80,7 @@ export function cafeSchema() {
     },
     hasMap: `https://www.google.com/maps/search/?api=1&query=${site.address.coordinates.lat},${site.address.coordinates.lng}`,
     openingHoursSpecification: toOpeningHoursSpecification(),
-    sameAs,
-    ...(sameAs.length > 0 ? {} : {})
+    sameAs
   };
 }
 

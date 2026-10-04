@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { DM_Sans, Fraunces } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -10,6 +11,7 @@ import { Providers } from '@/components/layout/Providers';
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { site } from '@/data/site';
 import { routing } from '@/i18n/routing';
+import { cafeSchema, websiteSchema } from '@/lib/schema';
 
 import '../globals.css';
 
@@ -120,10 +122,28 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const tNav = await getTranslations('nav');
+  const tHomeMeta = await getTranslations({ locale, namespace: 'home.meta' });
+
+  /*
+    Structured data belongs in the document head, so it is emitted here rather
+    than from the footer. `<` is escaped so a stray character in any interpolated
+    value cannot close the script tag early.
+  */
+  const jsonLd = [cafeSchema(tHomeMeta('description')), websiteSchema()].map(
+    (entry) => JSON.stringify(entry).replace(/</g, '\\u003c')
+  );
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
+        {jsonLd.map((entry, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: entry }}
+          />
+        ))}
+
         {/*
           Scroll-reveal styles start elements hidden. If scripting is off they
           would stay invisible, so force them visible up front.
@@ -147,6 +167,7 @@ export default async function LocaleLayout({
 
             <Footer />
             <WhatsAppFloat />
+            <Analytics />
           </Providers>
         </NextIntlClientProvider>
       </body>
