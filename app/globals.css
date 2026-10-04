@@ -1,26 +1,252 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/* Class-based dark mode (driven by next-themes). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------------------------------------------------------------------------
+   Brand palette — PRD 4.2
+   Base dark : Espresso      #2A1810
+   Base light: Krim Susu     #F7EFE2
+   Accents   : Merah Marun  #8C2F39 · Kuning Saffron #E8A317
+               Hijau Zaitun  #2F5D50 · Biru Teal Laut #1F6F8B
+               Terakota      #C9663D
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-espresso: #2a1810;
+  --color-espresso-soft: #3e241a;
+  --color-espresso-line: #4a2c1e;
+
+  --color-cream: #f7efe2;
+  --color-cream-deep: #efe3d0;
+  --color-cream-line: #e0d2bc;
+
+  --color-maroon: #8c2f39;
+  --color-maroon-deep: #6e222b;
+
+  --color-saffron: #e8a317;
+  --color-saffron-soft: #f5c463;
+
+  --color-olive: #2f5d50;
+  --color-olive-deep: #234639;
+
+  --color-teal: #1f6f8b;
+  --color-teal-deep: #17566c;
+
+  --color-terracotta: #c9663d;
+  --color-terracotta-deep: #8f4526;
+
+  /* Typography — PRD 4.3 */
+  --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-xl: clamp(3rem, 9vw, 7.5rem);
+  --text-display-lg: clamp(2.5rem, 6.5vw, 5rem);
+  --text-display-md: clamp(2rem, 4.5vw, 3.5rem);
+  --text-display-sm: clamp(1.5rem, 3vw, 2.25rem);
+
+  --radius-arch: 9999px;
+  --radius-card: 1.25rem;
+
+  --shadow-lift: 0 18px 40px -24px rgb(42 24 16 / 0.45);
+  --shadow-plate: 0 30px 60px -30px rgb(42 24 16 / 0.55);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 38s linear infinite;
+  --animate-drift: drift 14s ease-in-out infinite;
+}
+
+/* Semantic surface tokens — these flip with the theme. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --smiljan-bg: #f7efe2;
+  --smiljan-bg-alt: #efe3d0;
+  --smiljan-surface: #fffbf4;
+  --smiljan-ink: #2a1810;
+  --smiljan-ink-muted: #6b564a;
+  --smiljan-line: #e0d2bc;
+  --smiljan-header-bg: rgb(247 239 226 / 0.82);
+}
+
+.dark {
+  --smiljan-bg: #1b0f0a;
+  --smiljan-bg-alt: #251611;
+  --smiljan-surface: #2a1810;
+  --smiljan-ink: #f7efe2;
+  --smiljan-ink-muted: #c9b7a5;
+  --smiljan-line: #3e2a1e;
+  --smiljan-header-bg: rgb(27 15 10 / 0.82);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--smiljan-bg);
+  --color-bg-alt: var(--smiljan-bg-alt);
+  --color-surface: var(--smiljan-surface);
+  --color-ink: var(--smiljan-ink);
+  --color-ink-muted: var(--smiljan-ink-muted);
+  --color-line: var(--smiljan-line);
+  --color-header-bg: var(--smiljan-header-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0) rotate(2deg);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-saffron);
+    color: var(--color-espresso);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-maroon);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Only show the ring for keyboard users, never suppress it entirely. */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  [data-reveal='in'] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s var(--ease-out-soft),
+      transform 0.7s var(--ease-out-soft);
+  }
+
+  [data-arch] {
+    border-radius: 50% 50% 1.25rem 1.25rem / 42% 42% 1.25rem 1.25rem;
+  }
+
+  [data-arch-full] {
+    border-radius: 50% 50% 0 0 / 34% 34% 0 0;
+  }
+}
+
+@utility label-caps {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Decorative patterns inspired by classic tilework. */
+@utility pattern-diamond {
+  background-image:
+    linear-gradient(45deg, currentcolor 25%, transparent 25%),
+    linear-gradient(-45deg, currentcolor 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, currentcolor 75%),
+    linear-gradient(-45deg, transparent 75%, currentcolor 75%);
+  background-size: 18px 18px;
+  background-position:
+    0 0,
+    0 9px,
+    9px -9px,
+    -9px 0;
+}
+
+@utility pattern-dots {
+  background-image: radial-gradient(currentcolor 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+}
+
+@utility pattern-weave {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      currentcolor 0 1px,
+      transparent 1px 7px
+    ),
+    repeating-linear-gradient(0deg, currentcolor 0 1px, transparent 1px 7px);
+}
+
+@utility text-stroke-cream {
+  -webkit-text-stroke: 1.5px var(--color-cream);
+  color: transparent;
+}
+
+/* Marquee must pause when the user asks for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "home": "Beranda",
+  "menu": "Menu",
+  "cerita": "Cerita",
+  "lokasi": "Lokasi",
+  "galeri": "Galeri",
+  "reservasi": "Reservasi",
+  "kontak": "Kontak",
+  "openMenu": "Buka menu navigasi",
+  "closeMenu": "Tutup menu navigasi",
+  "switchLocale": "Ganti bahasa",
+  "toggleTheme": "Ganti tema terang dan gelap",
+  "skipToContent": "Lompat ke konten utama"
+}

@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Smiljan — Kopi Klasik yang Berkelas",
+    "description": "Smiljan adalah coffee shop dengan karakter klasik yang berkelas. Biji pilihan yang disangrai sendiri, diseduh manual satu per satu, di ruang yang hangat dan penuh warna."
+  },
+  "hero": {
+    "eyebrow": "Coffee · Jakarta",
+    "titleTop": "Klasik yang",
+    "titleEmphasis": "berkelas",
+    "titleBottom": "dan hangat",
+    "description": "Biji pilihan yang kami sangrai sendiri setiap minggu, lalu diseduh manual satu cangkir pada satu waktu. Bukan kafe yang sekadar ramai — ini rumah untuk minum kopi dengan perlahan.",
+    "primaryCta": "Lihat Menu",
+    "secondaryCta": "Pesan via WhatsApp",
+    "scrollHint": "Gulir ke bawah",
+    "stats": {
+      "since": "Sejak",
+      "beans": "Biji setiap minggu",
+      "rating": "Rating pelanggan"
+    }
+  },
+  "signature": {
+    "eyebrow": "Menu Signature",
+    "title": "Empat tegukan yang paling kami banggakan",
+    "description": "Setiap cangkir punya alasan dibuat dengan cara tertentu. Ini yang paling sering dipesan, dan paling sering kami perbaiki.",
+    "cta": "Lihat semua menu",
+    "tastingNotes": "Catatan rasa",
+    "brewTime": "Seduh {minutes} menit"
+  },
+  "story": {
+    "eyebrow": "Cerita Smiljan",
+    "title": "Tempat untuk minum kopi tanpa terburu-buru",
+    "body": "Smiljan lahir dari kesederhanaan yang disengaja: satu biji, satu proses, satu cangkir. Kami memilih biji dari petani yang kami kenal, menyangrai dalam batch kecil, lalu menyeduhnya manual di depan Anda. Tidak ada yang dikerjakan setengah-setengah, dan tidak ada yang perlu buru-buru.",
+    "bodySecond": "Ruangnya sengaja dibuat hangat dan berwarna. Kami ingin orang datang untuk nongkrong, bekerja, atau sekadar duduk membaca tanpa ada yang menekan mereka untuk pergi.",
+    "cta": "Baca cerita lengkap",
+    "since": "Sejak {year}"
+  },
+  "why": {
+    "eyebrow": "Kenapa Smiljan",
+    "title": "Tiga hal yang tidak kami tawar",
+    "items": {
+      "beans": {
+        "title": "Biji pilihan, disangrai sendiri",
+        "body": "Kami membeli dalam batch kecil dari petani yang kami kenal, lalu menyangrai sendiri setiap minggu."
+      },
+      "manual": {
+        "title": "Seduh manual, satu per satu",
+        "body": "Tidak ada mesin yang menyeduh di belakang layar. Setiap cangkir punya alasannya sendiri."
+      },
+      "space": {
+        "title": "Ruang yang nyaman untuk tinggal",
+        "body": "Colokan di setiap meja, Wi-Fi yang stabil, dan tidak ada aturan yang mengetuk siapa pun yang sedang bekerja."
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "Galeri",
+    "title": "Suasana Smiljan",
+    "description": "Sudut-sudut yang membuat orang betah lebih lama dari yang direncanakan.",
+    "cta": "Lihat galeri lengkap"
+  },
+  "testimonials": {
+    "eyebrow": "Kata mereka",
+    "title": "Dari meja para pelanggan",
+    "ratingSuffix": "dari {count} ulasan"
+  },
+  "location": {
+    "eyebrow": "Lokasi & Jam Buka",
+    "title": "Datang, duduk, dan menetap",
+    "description": "Kami buka tujuh hari seminggu. Datang saja tanpa reservasi, atau pesan tempat lebih dulu kalau Anda membawa grup.",
+    "cta": "Lihat detail lokasi",
+    "directions": "Petunjuk arah",
+    "hoursTitle": "Jam buka",
+    "openStatus": "Status"
+  }
+}

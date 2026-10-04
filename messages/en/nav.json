@@ -1,0 +1,14 @@
+{
+  "home": "Home",
+  "menu": "Menu",
+  "cerita": "Our Story",
+  "lokasi": "Location",
+  "galeri": "Gallery",
+  "reservasi": "Reservations",
+  "kontak": "Contact",
+  "openMenu": "Open navigation menu",
+  "closeMenu": "Close navigation menu",
+  "switchLocale": "Switch language",
+  "toggleTheme": "Toggle light and dark theme",
+  "skipToContent": "Skip to main content"
+}

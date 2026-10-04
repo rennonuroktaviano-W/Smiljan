@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Menu",
+    "description": "The Smiljan menu."
+  },
+  "all": "All",
+  "categories": {
+    "kopi-panas": "Hot Coffee",
+    "kopi-dingin": "Iced Coffee",
+    "non-kopi": "Non-Coffee",
+    "makanan": "Kitchen",
+    "pastry": "Pastry"
+  },
+  "badges": {
+    "signature": "Signature",
+    "baru": "New",
+    "vegan": "Vegan",
+    "manual": "Hand Brewed",
+    "panas": "Hot"
+  },
+  "detail": {
+    "tastingNotes": "Tasting notes",
+    "brewTime": "Brew time",
+    "sizes": "Available sizes",
+    "order": "Order via WhatsApp",
+    "unavailable": "Sold out"
+  },
+  "empty": "Nothing in this category yet."
+}

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" width="1200" height="1500" role="img" aria-label="Mushroom pasta placeholder illustration">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EFE2"/>
+      <stop offset="55%" stop-color="#F6E1D6"/>
+      <stop offset="100%" stop-color="#eac1ae"/>
+    </linearGradient>
+    <pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M0 0 L40 0 L0 40 Z" fill="#8F4526" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#wash)"/>
+
+  <circle cx="600" cy="750" r="528" fill="#C9663D" opacity="0.13"/>
+  <circle cx="168.00000000000003" cy="240" r="108" fill="#8F4526" opacity="0.16"/>
+  <circle cx="1032" cy="1230" r="156" fill="#C9663D" opacity="0.18"/>
+
+  <g transform="rotate(4 600 750)">
+    
+    <g fill="#8F4526">
+      <circle cx="600" cy="750" r="225" opacity="0.88"/>
+      <circle cx="600" cy="750" r="162" fill="#F7EFE2" opacity="0.5"/>
+      <circle cx="555" cy="723" r="67.5" opacity="0.75"/>
+      <circle cx="654" cy="772.5" r="49.5" opacity="0.6"/>
+      <rect x="876" y="606" width="16.5" height="225" rx="9" opacity="0.8"/>
+      <rect x="909" y="606" width="16.5" height="225" rx="9" opacity="0.8"/>
+      <rect x="258" y="690" width="66" height="19.5" rx="10.5" opacity="0.7"/>
+    </g>
+  </g>
+
+  <rect width="1200" height="1500" fill="url(#tile)"/>
+
+  <rect x="0" y="0" width="1200" height="1500" fill="none" stroke="#8F4526" stroke-width="3" opacity="0.18"/>
+</svg>

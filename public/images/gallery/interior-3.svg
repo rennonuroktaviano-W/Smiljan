@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400" width="1200" height="1400" role="img" aria-label="Work area placeholder illustration">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EFE2"/>
+      <stop offset="55%" stop-color="#DDE7E3"/>
+      <stop offset="100%" stop-color="#88a39b"/>
+    </linearGradient>
+    <pattern id="tile" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <rect width="28" height="28" fill="none"/>
+      <path d="M0 0 L28 0 L0 28 Z" fill="#234639" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="1400" fill="url(#wash)"/>
+
+  <circle cx="600" cy="700" r="528" fill="#2F5D50" opacity="0.13"/>
+  <circle cx="168.00000000000003" cy="224" r="108" fill="#234639" opacity="0.16"/>
+  <circle cx="1032" cy="1148" r="156" fill="#2F5D50" opacity="0.18"/>
+
+  <g transform="rotate(-3 600 700)">
+    
+    <g fill="#234639">
+      <path d="M285 985 v-285
+        a315 315 0 0 1 630 0 v285 z" opacity="0.9"/>
+      <rect x="561" y="475" width="78" height="90" rx="15" fill="#F7EFE2" opacity="0.5"/>
+      <rect x="375" y="760" width="450" height="30" rx="15" fill="#2F5D50"/>
+      <rect x="408" y="790" width="27" height="195" rx="13.5" opacity="0.75"/>
+      <rect x="765" y="790" width="27" height="195" rx="13.5" opacity="0.75"/>
+      <g stroke="#234639" stroke-width="10.5" opacity="0.6" stroke-linecap="round">
+        <path d="M456 415 v66"/>
+        <path d="M744 415 v66"/>
+      </g>
+      <circle cx="456" cy="502" r="39" opacity="0.85"/>
+      <circle cx="744" cy="502" r="39" opacity="0.85"/>
+    </g>
+  </g>
+
+  <rect width="1200" height="1400" fill="url(#tile)"/>
+
+  <rect x="0" y="0" width="1200" height="1400" fill="none" stroke="#234639" stroke-width="3" opacity="0.18"/>
+</svg>

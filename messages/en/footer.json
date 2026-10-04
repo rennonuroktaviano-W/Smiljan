@@ -1,0 +1,22 @@
+{
+  "explore": "Explore",
+  "visit": "Visit",
+  "connect": "Connect",
+  "address": "Address",
+  "hours": "Opening hours",
+  "getDirections": "Get directions",
+  "whatsapp": "WhatsApp",
+  "email": "Email",
+  "instagram": "Instagram",
+  "followUs": "Follow us",
+  "rightsReserved": "All rights reserved.",
+  "builtWith": "Built with Next.js",
+  "disclaimerTitle": "A note on content",
+  "disclaimerBody": "Imagery on this site is still placeholder illustration. Real product and interior photography will replace these files once the photo shoot is done.",
+  "statusOpen": "Open now",
+  "statusClosed": "Closed now",
+  "opensAt": "Opens at {time}",
+  "closesAt": "Closes at {time}",
+  "openNow": "Open now",
+  "closedNow": "Closed now"
+}

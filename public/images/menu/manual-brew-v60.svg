@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="V60 Manual Brew placeholder illustration">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EFE2"/>
+      <stop offset="55%" stop-color="#EFE3D0"/>
+      <stop offset="100%" stop-color="#d0aba1"/>
+    </linearGradient>
+    <pattern id="tile" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <rect width="28" height="28" fill="none"/>
+      <path d="M0 0 L28 0 L0 28 Z" fill="#6E222B" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#wash)"/>
+
+  <circle cx="400" cy="400" r="352" fill="#8C2F39" opacity="0.13"/>
+  <circle cx="112.00000000000001" cy="128" r="72" fill="#6E222B" opacity="0.16"/>
+  <circle cx="688" cy="656" r="104" fill="#8C2F39" opacity="0.18"/>
+
+  <g transform="rotate(-3 400 400)">
+    
+    <g fill="#6E222B">
+      <path d="M295 320 h210 a18 18 0 0 1 18 18
+        v124 a18 18 0 0 1 -18 18 h-210 z" opacity="0.92"/>
+      <path d="M499 366
+        c70 4 74 78 6 86
+        l-10 -14 c-52 -10 -48 -62 4 -66 z" opacity="0.92"/>
+      <rect x="269" y="486" width="262" height="16" rx="8" opacity="0.7"/>
+      <path d="M356 294
+        c-16 -22 16 -40 0 -62"
+        stroke="#6E222B" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.55"/>
+      <path d="M406 286
+        c-16 -22 16 -40 0 -62"
+        stroke="#6E222B" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.4"/>
+      <path d="M454 296
+        c-16 -22 16 -40 0 -62"
+        stroke="#6E222B" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.5"/>
+    </g>
+  </g>
+
+  <rect width="800" height="800" fill="url(#tile)"/>
+
+  <rect x="0" y="0" width="800" height="800" fill="none" stroke="#6E222B" stroke-width="3" opacity="0.18"/>
+</svg>

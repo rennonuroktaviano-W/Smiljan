@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1067" width="1600" height="1067" role="img" aria-label="Private gathering placeholder illustration">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EFE2"/>
+      <stop offset="55%" stop-color="#DCE9EF"/>
+      <stop offset="100%" stop-color="#b1cdd8"/>
+    </linearGradient>
+    <pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(15)">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M0 0 L40 0 L0 40 Z" fill="#17566C" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1067" fill="url(#wash)"/>
+
+  <circle cx="800" cy="533.5" r="469.48" fill="#1F6F8B" opacity="0.13"/>
+  <circle cx="224.00000000000003" cy="170.72" r="96.03" fill="#17566C" opacity="0.16"/>
+  <circle cx="1376" cy="874.9399999999999" r="138.71" fill="#1F6F8B" opacity="0.18"/>
+
+  <g transform="rotate(1 800 533.5)">
+    
+    <g fill="#17566C">
+      <path d="M599.9375 373.45 h114.7025 l-21.34 280.0875
+        a21.34 21.34 0 0 1 -21.34 21.34 h-50.6825
+        a21.34 21.34 0 0 1 -21.34 -21.34 z" opacity="0.9" transform="rotate(-10 657.2887499999999 533.5)"/>
+      <path d="M885.36 373.45 h114.7025 l-21.34 280.0875
+        a21.34 21.34 0 0 1 -21.34 21.34 h-50.6825
+        a21.34 21.34 0 0 1 -21.34 -21.34 z" opacity="0.9" transform="rotate(10 942.7112500000001 533.5)"/>
+      <circle cx="800" cy="322.76750000000004" r="21.34" opacity="0.7"/>
+      <g stroke="#17566C" stroke-width="10.67" opacity="0.5" stroke-linecap="round" fill="none">
+        <path d="M546.5875 733.5625 h506.825"/>
+      </g>
+    </g>
+  </g>
+
+  <rect width="1600" height="1067" fill="url(#tile)"/>
+
+  <rect x="0" y="0" width="1600" height="1067" fill="none" stroke="#17566C" stroke-width="3" opacity="0.18"/>
+</svg>

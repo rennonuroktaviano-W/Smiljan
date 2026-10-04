@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Menu",
+    "description": "Daftar menu Smiljan."
+  },
+  "all": "Semua",
+  "categories": {
+    "kopi-panas": "Kopi Panas",
+    "kopi-dingin": "Kopi Dingin",
+    "non-kopi": "Non-Kopi",
+    "makanan": "Makanan",
+    "pastry": "Pastry"
+  },
+  "badges": {
+    "signature": "Signature",
+    "baru": "Baru",
+    "vegan": "Vegan",
+    "manual": "Manual",
+    "panas": "Panas"
+  },
+  "detail": {
+    "tastingNotes": "Catatan rasa",
+    "brewTime": "Waktu seduh",
+    "sizes": "Pilihan ukuran",
+    "order": "Pesan via WhatsApp",
+    "unavailable": "Stok habis"
+  },
+  "empty": "Belum ada menu pada kategori ini."
+}

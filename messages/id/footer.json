@@ -1,0 +1,22 @@
+{
+  "explore": "Jelajahi",
+  "visit": "Kunjungi",
+  "connect": "Terhubung",
+  "address": "Alamat",
+  "hours": "Jam buka",
+  "getDirections": "Petunjuk arah",
+  "whatsapp": "WhatsApp",
+  "email": "Email",
+  "instagram": "Instagram",
+  "followUs": "Ikuti kami",
+  "rightsReserved": "Seluruh hak cipta dilindungi.",
+  "builtWith": "Dibangun dengan Next.js",
+  "disclaimerTitle": "Catatan konten",
+  "disclaimerBody": "Gambar pada situs ini masih berupa ilustrasi placeholder. Foto produk dan interior asli akan menggantikan Gambar ini setelah sesi foto selesai.",
+  "statusOpen": "Buka sekarang",
+  "statusClosed": "Tutup sekarang",
+  "opensAt": "Buka pukul {time}",
+  "closesAt": "Tutup pukul {time}",
+  "openNow": "Sedang buka",
+  "closedNow": "Sedang tutup"
+}

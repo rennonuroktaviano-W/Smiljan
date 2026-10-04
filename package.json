@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:content": "node scripts/check-content.mjs",
+    "images:placeholder": "node --no-warnings scripts/generate-placeholders.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.51.0",

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Eggs Benedict placeholder illustration">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EFE2"/>
+      <stop offset="55%" stop-color="#F6E1D6"/>
+      <stop offset="100%" stop-color="#e0a48a"/>
+    </linearGradient>
+    <pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M0 0 L40 0 L0 40 Z" fill="#8F4526" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#wash)"/>
+
+  <circle cx="400" cy="400" r="352" fill="#C9663D" opacity="0.13"/>
+  <circle cx="112.00000000000001" cy="128" r="72" fill="#8F4526" opacity="0.16"/>
+  <circle cx="688" cy="656" r="104" fill="#C9663D" opacity="0.18"/>
+
+  <g transform="rotate(-2 400 400)">
+    
+    <g fill="#8F4526">
+      <circle cx="400" cy="400" r="150" opacity="0.88"/>
+      <circle cx="400" cy="400" r="108" fill="#F7EFE2" opacity="0.5"/>
+      <circle cx="370" cy="382" r="45" opacity="0.75"/>
+      <circle cx="436" cy="415" r="33" opacity="0.6"/>
+      <rect x="584" y="304" width="11" height="150" rx="6" opacity="0.8"/>
+      <rect x="606" y="304" width="11" height="150" rx="6" opacity="0.8"/>
+      <rect x="172" y="360" width="44" height="13" rx="7" opacity="0.7"/>
+    </g>
+  </g>
+
+  <rect width="800" height="800" fill="url(#tile)"/>
+
+  <rect x="0" y="0" width="800" height="800" fill="none" stroke="#8F4526" stroke-width="3" opacity="0.18"/>
+</svg>

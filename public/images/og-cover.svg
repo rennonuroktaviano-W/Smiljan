@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Smiljan Coffee">
+  <defs>
+    <linearGradient id="og" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2A1810"/>
+      <stop offset="100%" stop-color="#6E222B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#og)"/>
+  <circle cx="960" cy="150" r="220" fill="#E8A317" opacity="0.16"/>
+  <circle cx="180" cy="520" r="180" fill="#C9663D" opacity="0.18"/>
+  <g fill="none" stroke="#E8A317" stroke-width="2" opacity="0.4">
+    <path d="M0 630 L1200 0"/>
+  </g>
+  <text x="80" y="300" font-family="Georgia, serif" font-size="86" fill="#F7EFE2" letter-spacing="10">SMILJAN</text>
+  <text x="84" y="356" font-family="Georgia, serif" font-size="30" fill="#F5C463" letter-spacing="7">SLOW BREWED · FRESHLY ROASTED</text>
+</svg>

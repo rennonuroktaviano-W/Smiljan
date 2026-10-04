@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img" aria-label="Cupping session placeholder illustration">
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7EFE2"/>
+      <stop offset="55%" stop-color="#DCE9EF"/>
+      <stop offset="100%" stop-color="#abc9d5"/>
+    </linearGradient>
+    <pattern id="tile" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(0)">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M0 0 L40 0 L0 40 Z" fill="#17566C" opacity="0.13"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#wash)"/>
+
+  <circle cx="800" cy="600" r="528" fill="#1F6F8B" opacity="0.13"/>
+  <circle cx="224.00000000000003" cy="192" r="108" fill="#17566C" opacity="0.16"/>
+  <circle cx="1376" cy="983.9999999999999" r="156" fill="#1F6F8B" opacity="0.18"/>
+
+  <g transform="rotate(-8 800 600)">
+    
+    <g fill="#17566C">
+      <path d="M575 420 h129 l-24 315
+        a24 24 0 0 1 -24 24 h-57
+        a24 24 0 0 1 -24 -24 z" opacity="0.9" transform="rotate(-10 639.5 600)"/>
+      <path d="M896 420 h129 l-24 315
+        a24 24 0 0 1 -24 24 h-57
+        a24 24 0 0 1 -24 -24 z" opacity="0.9" transform="rotate(10 960.5 600)"/>
+      <circle cx="800" cy="363" r="24" opacity="0.7"/>
+      <g stroke="#17566C" stroke-width="12" opacity="0.5" stroke-linecap="round" fill="none">
+        <path d="M515 825 h570"/>
+      </g>
+    </g>
+  </g>
+
+  <rect width="1600" height="1200" fill="url(#tile)"/>
+
+  <rect x="0" y="0" width="1600" height="1200" fill="none" stroke="#17566C" stroke-width="3" opacity="0.18"/>
+</svg>

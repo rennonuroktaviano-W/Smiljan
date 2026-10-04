@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "Smiljan — Coffee With Real Character",
+    "description": "Smiljan is a coffee shop with genuine character. Selected beans roasted in house, brewed by hand one cup at a time, in a room that is warm and full of colour."
+  },
+  "hero": {
+    "eyebrow": "Coffee · Jakarta",
+    "titleTop": "Classic, with",
+    "titleEmphasis": "character",
+    "titleBottom": "and warmth",
+    "description": "Selected beans we roast ourselves every week, then brew by hand one cup at a time. Not a coffee-themed space — a place to drink coffee slowly.",
+    "primaryCta": "See the menu",
+    "secondaryCta": "Order via WhatsApp",
+    "scrollHint": "Scroll down",
+    "stats": {
+      "since": "Since",
+      "beans": "Beans per week",
+      "rating": "Customer rating"
+    }
+  },
+  "signature": {
+    "eyebrow": "Signature menu",
+    "title": "Four cups we are proudest of",
+    "description": "Every cup exists for a reason. These are the ones people order most, and the ones we keep adjusting.",
+    "cta": "See the full menu",
+    "tastingNotes": "Tasting notes",
+    "brewTime": "Brewed in {minutes} min"
+  },
+  "story": {
+    "eyebrow": "The Smiljan story",
+    "title": "A place to drink coffee without hurrying",
+    "body": "Smiljan began as a deliberate kind of simplicity: one bean, one process, one cup. We buy from growers we know, roast in small batches, and brew by hand in front of you. Nothing is done halfway, and nothing is done in a rush.",
+    "bodySecond": "The room is deliberately warm and colourful. We want people to come and hang out, work, or simply sit and read without anyone pressuring them to leave.",
+    "cta": "Read the full story",
+    "since": "Since {year}"
+  },
+  "why": {
+    "eyebrow": "Why Smiljan",
+    "title": "Three things we do not compromise on",
+    "items": {
+      "beans": {
+        "title": "Chosen beans, roasted in house",
+        "body": "We buy in small lots from growers we know, then roast weekly so every cup tastes freshly roasted."
+      },
+      "manual": {
+        "title": "Brewed by hand, one cup at a time",
+        "body": "No machine brewing behind the counter. Every cup has its own reason for being made that way."
+      },
+      "space": {
+        "title": "A room you can actually stay in",
+        "body": "Outlets at every table, wifi that holds, and no rules about interrupting whoever is working."
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "Gallery",
+    "title": "The Smiljan atmosphere",
+    "description": "The corners that make people stay longer than they planned to.",
+    "cta": "See the full gallery"
+  },
+  "testimonials": {
+    "eyebrow": "In their words",
+    "title": "From our customers' tables",
+    "ratingSuffix": "from {count} reviews"
+  },
+  "location": {
+    "eyebrow": "Location & hours",
+    "title": "Come, sit, and stay awhile",
+    "description": "We are open seven days a week. Just turn up, or book ahead if you are bringing a group.",
+    "cta": "See location details",
+    "directions": "Get directions",
+    "hoursTitle": "Opening hours",
+    "openStatus": "Status"
+  }
+}
