@@ -1,29 +1,41 @@
 {
   "meta": {
     "title": "Menu",
-    "description": "The Smiljan menu."
+    "description": "Smiljan's hot coffee, cold coffee, non-coffee drinks, food and pastries. Every bean is roasted in house each week."
+  },
+  "hero": {
+    "eyebrow": "The Smiljan menu",
+    "title": "Every cup has its own reason",
+    "description": "Beans roasted in house every week, then brewed one cup at a time in front of you. Prices are in Indonesian Rupiah, tax included.",
+    "note": "Prices and availability change. Anything sold out today is marked on this page."
   },
   "all": "All",
+  "count": "{count} items",
+  "filterLabel": "Filter the menu by category",
   "categories": {
     "kopi-panas": "Hot Coffee",
-    "kopi-dingin": "Iced Coffee",
+    "kopi-dingin": "Cold Coffee",
     "non-kopi": "Non-Coffee",
-    "makanan": "Kitchen",
+    "makanan": "Food",
     "pastry": "Pastry"
   },
   "badges": {
     "signature": "Signature",
     "baru": "New",
     "vegan": "Vegan",
-    "manual": "Hand Brewed",
+    "manual": "Hand-brewed",
     "panas": "Hot"
   },
   "detail": {
     "tastingNotes": "Tasting notes",
     "brewTime": "Brew time",
-    "sizes": "Available sizes",
+    "minutes": "{minutes} min",
+    "sizes": "Portion sizes",
     "order": "Order via WhatsApp",
-    "unavailable": "Sold out"
+    "unavailable": "Sold out",
+    "viewDetail": "View details",
+    "close": "Close",
+    "orderMessage": "Hi Smiljan, I would like to order: {name}."
   },
   "empty": "Nothing in this category yet."
 }

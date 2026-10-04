@@ -1,9 +1,17 @@
 {
   "meta": {
     "title": "Menu",
-    "description": "Daftar menu Smiljan."
+    "description": "Kopi panasan, kopi dingin, non-kopi, makanan, dan pastry Smiljan. Semua biji disangrai sendiri setiap minggu."
+  },
+  "hero": {
+    "eyebrow": "Menu Smiljan",
+    "title": "Setiap tegukan punya alasannya sendiri",
+    "description": "Biji disangrai sendiri setiap minggu, lalu diseduh satu per satu di depan Anda. Harga dalam Rupiah, sudah termasuk pajak.",
+    "note": "Harga dan ketersediaan bisa berubah. Yang sold out hari ini ditandai di halaman ini."
   },
   "all": "Semua",
+  "count": "{count} menu",
+  "filterLabel": "Filter kategori menu",
   "categories": {
     "kopi-panas": "Kopi Panas",
     "kopi-dingin": "Kopi Dingin",
@@ -21,9 +29,13 @@
   "detail": {
     "tastingNotes": "Catatan rasa",
     "brewTime": "Waktu seduh",
+    "minutes": "{minutes} menit",
     "sizes": "Pilihan ukuran",
     "order": "Pesan via WhatsApp",
-    "unavailable": "Stok habis"
+    "unavailable": "Stok habis",
+    "viewDetail": "Lihat detail",
+    "close": "Tutup",
+    "orderMessage": "Halo Smiljan, saya mau pesan: {name}."
   },
   "empty": "Belum ada menu pada kategori ini."
 }
