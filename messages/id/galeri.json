@@ -1,7 +1,27 @@
 {
   "meta": {
     "title": "Galeri",
-    "description": "Interior, minuman, makanan, dan acara di Smiljan."
+    "description": "Suasana, minuman, makanan, dan acara di Smiljan Coffee."
   },
-  "placeholder": "Halaman ini sedang ditulis."
+  "hero": {
+    "eyebrow": "Galeri",
+    "title": "Suasana Smiljan",
+    "description": "Sudut-sudut yang membuat orang betah lebih lama dari yang direncanakan."
+  },
+  "all": "Semua",
+  "count": "{count} foto",
+  "filterLabel": "Filter foto berdasarkan kategori",
+  "categories": {
+    "interior": "Interior",
+    "minuman": "Minuman",
+    "makanan": "Makanan",
+    "event": "Event"
+  },
+  "lightbox": {
+    "close": "Tutup",
+    "previous": "Foto sebelumnya",
+    "next": "Foto berikutnya",
+    "counter": "{current} dari {total}"
+  },
+  "empty": "Belum ada foto pada kategori ini."
 }

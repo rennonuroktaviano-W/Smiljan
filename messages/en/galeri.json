@@ -1,7 +1,27 @@
 {
   "meta": {
     "title": "Gallery",
-    "description": "Interior, drinks, food and events at Smiljan."
+    "description": "The atmosphere, drinks, food and events at Smiljan Coffee."
   },
-  "placeholder": "This page is being written."
+  "hero": {
+    "eyebrow": "Gallery",
+    "title": "The Smiljan atmosphere",
+    "description": "The corners that make people stay longer than they planned to."
+  },
+  "all": "All",
+  "count": "{count} photos",
+  "filterLabel": "Filter photos by category",
+  "categories": {
+    "interior": "Interior",
+    "minuman": "Drinks",
+    "makanan": "Food",
+    "event": "Events"
+  },
+  "lightbox": {
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "counter": "{current} of {total}"
+  },
+  "empty": "Nothing in this category yet."
 }
