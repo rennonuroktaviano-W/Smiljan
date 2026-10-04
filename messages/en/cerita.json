@@ -1,7 +1,35 @@
 {
   "meta": {
     "title": "The Smiljan story",
-    "description": "Where Smiljan came from and what it stands for."
+    "description": "How Smiljan started, the process from bean to cup, our brand values, and the barista team behind the counter."
   },
-  "placeholder": "This page is being written."
+  "hero": {
+    "eyebrow": "The Smiljan story",
+    "title": "Built slowly, for drinking coffee unhurried",
+    "description": "Smiljan is a small coffee shop with one bar and one warm room. We choose very little, take care over what we pick, and are never in a hurry.",
+    "since": "Since {year}"
+  },
+  "origin": {
+    "eyebrow": "Origins",
+    "title": "From a room that felt like home"
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "From bean to cup",
+    "description": "The same four steps every time, whatever the bean. There is no shortcut in any of them.",
+    "stepLabel": "Step {index}"
+  },
+  "values": {
+    "eyebrow": "Brand values",
+    "title": "Three things we do not compromise on"
+  },
+  "team": {
+    "eyebrow": "The team",
+    "title": "The people behind the bar",
+    "description": "Three people who keep every cup consistent from one week to the next."
+  },
+  "cta": {
+    "title": "Come and see it for yourself",
+    "description": "The room makes more sense once you have brewed a coffee inside it."
+  }
 }

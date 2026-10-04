@@ -1,7 +1,35 @@
 {
   "meta": {
     "title": "Cerita Smiljan",
-    "description": "Asal-usul dan filosofi Smiljan."
+    "description": "Asal-usul Smiljan, proses dari biji sampai cangkir, nilai-nilai brand, dan profil tim barista kami."
   },
-  "placeholder": "Halaman ini sedang ditulis."
+  "hero": {
+    "eyebrow": "Cerita Smiljan",
+    "title": "Dibangun pelan, untuk minum kopi tanpa terburu-buru",
+    "description": "Smiljan adalah coffee shop kecil dengan satu bar dan satu ruangan yang hangat. Kami memilih sedikit, dikerjakan dengan hatihati, dan tidak pernah buru-buru.",
+    "since": "Sejak {year}"
+  },
+  "origin": {
+    "eyebrow": "Asal mula",
+    "title": "Dari satu ruangan yang terasa seperti rumah"
+  },
+  "process": {
+    "eyebrow": "Proses",
+    "title": "Dari biji sampai cangkir",
+    "description": "Empat tahap yang selalu sama, apa pun bijinya. Tidak ada jalan pintas di keempat tahap ini.",
+    "stepLabel": "Tahap {index}"
+  },
+  "values": {
+    "eyebrow": "Nilai brand",
+    "title": "Tiga hal yang tidak kami tawar"
+  },
+  "team": {
+    "eyebrow": "Tim",
+    "title": "Orang di balik bar",
+    "description": "Tiga orang yang menjaga setiap tegukan tetap sama dari minggu ke minggu."
+  },
+  "cta": {
+    "title": "Datang dan lihat sendiri",
+    "description": "Ruangnya lebih mudah dipahami setelah Anda menyeduh kopi di dalamnya sendiri."
+  }
 }
