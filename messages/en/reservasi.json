@@ -1,7 +1,52 @@
 {
   "meta": {
-    "title": "Reservations & events",
-    "description": "Book a table or hire the Smiljan space."
+    "title": "Reservations & Events",
+    "description": "Book a table at Smiljan over WhatsApp, or hire the whole space for a private event."
   },
-  "placeholder": "This page is being written."
+  "hero": {
+    "eyebrow": "Reservations",
+    "title": "Claim your table",
+    "description": "Fill in the short form below and we will open WhatsApp with the message already written. No account, no waiting for a reply."
+  },
+  "form": {
+    "title": "Reservation details",
+    "description": "Everything is required except the note.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "whatsapp": "WhatsApp number",
+    "whatsappPlaceholder": "0812-3456-7890",
+    "whatsappHint": "A number we can reach you on that day.",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Number of guests",
+    "notes": "Notes",
+    "notesPlaceholder": "Window table, high chair, any allergies, and so on.",
+    "submit": "Continue to WhatsApp",
+    "afterSubmit": "Your message opens in WhatsApp, ready to send.",
+    "summary": {
+      "date": "Date",
+      "time": "Time",
+      "guests": "Number of guests",
+      "notes": "Notes"
+    }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "phone": "Enter a valid phone number.",
+    "date": "Choose a valid date.",
+    "pastDate": "The date cannot be in the past.",
+    "time": "Choose an available time.",
+    "integer": "Enter a whole number.",
+    "minGuests": "At least one guest.",
+    "maxGuests": "Maximum 20 guests per reservation.",
+    "tooLong": "This is too long."
+  },
+  "private": {
+    "eyebrow": "Private events",
+    "title": "Hire the space for an event",
+    "description": "For office events or private occasions that need the room to themselves, we can set up the whole space. Tell us what you need and we will reply with a package and a price.",
+    "cta": "Ask about hiring the space",
+    "capacity": "Space capacity",
+    "capacityValue": "20 people"
+  }
 }

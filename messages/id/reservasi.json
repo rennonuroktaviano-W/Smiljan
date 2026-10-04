@@ -1,7 +1,52 @@
 {
   "meta": {
     "title": "Reservasi & Acara",
-    "description": "Pesan meja atau sewa tempat Smiljan."
+    "description": "Reservasi meja di Smiljan lewat WhatsApp, atau sewa tempat untuk acara privat."
   },
-  "placeholder": "Halaman ini sedang ditulis."
+  "hero": {
+    "eyebrow": "Reservasi",
+    "title": "Ambil meja Anda",
+    "description": "Isi formulir singkat di bawah, lalu kami buka WhatsApp dengan pesan yang sudah terisi. Tidak perlu account, tidak perlu menunggu balasan."
+  },
+  "form": {
+    "title": "Detail reservasi",
+    "description": "Semuanya wajib diisi kecuali catatan.",
+    "name": "Nama",
+    "namePlaceholder": "Nama Anda",
+    "whatsapp": "Nomor WhatsApp",
+    "whatsappPlaceholder": "0812-3456-7890",
+    "whatsappHint": "Nomor yang bisa dihubungi pada hari itu.",
+    "date": "Tanggal",
+    "time": "Jam",
+    "guests": "Jumlah orang",
+    "notes": "Catatan",
+    "notesPlaceholder": "Meja di dekat jendela, kursi bayi, alergi tertentu, dan sebagainya.",
+    "submit": "Lanjut ke WhatsApp",
+    "afterSubmit": "Pesan Anda terbuka di WhatsApp dan siap dikirim.",
+    "summary": {
+      "date": "Tanggal",
+      "time": "Jam",
+      "guests": "Jumlah orang",
+      "notes": "Catatan"
+    }
+  },
+  "validation": {
+    "required": "Wajib diisi.",
+    "phone": "Masukkan nomor yang valid.",
+    "date": "Pilih tanggal yang valid.",
+    "pastDate": "Tanggal tidak boleh di masa lalu.",
+    "time": "Pilih jam yang tersedia.",
+    "integer": "Masukkan angka bulat.",
+    "minGuests": "Minimal satu orang.",
+    "maxGuests": "Maksimal 20 orang per reservasi.",
+    "tooLong": "Terlalu panjang."
+  },
+  "private": {
+    "eyebrow": "Acara privat",
+    "title": "Sewa tempat untuk acara",
+    "description": "Untuk acara kantor atau acara pribadi yang butuh ruang tertutup, kami bisa menyiapkan seluruh ruangan. Ceritakan kebutuhan Anda dan tim kami akan membalas dengan paket dan harga sewa.",
+    "cta": "Tanya sewa tempat",
+    "capacity": "Kapasitas ruang",
+    "capacityValue": "20 orang"
+  }
 }
