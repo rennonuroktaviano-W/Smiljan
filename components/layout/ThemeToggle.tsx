@@ -2,9 +2,9 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
 import { useTranslations } from 'next-intl';
+import { useMounted } from '@/lib/use-mounted';
 import { cn } from '@/lib/utils';
 
 type ThemeToggleProps = {
@@ -19,9 +19,7 @@ type ThemeToggleProps = {
 export function ThemeToggle({ tone = 'ink' }: ThemeToggleProps) {
   const t = useTranslations('nav');
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const isDark = resolvedTheme === 'dark';
   const isCream = tone === 'cream';

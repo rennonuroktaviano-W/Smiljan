@@ -10,5 +10,24 @@
   ],
   "priceFrom": "Starting at",
   "close": "Close",
-  "learnMore": "Learn more"
+  "learnMore": "Learn more",
+  "days": {
+    "sun": "Sunday",
+    "mon": "Monday",
+    "tue": "Tuesday",
+    "wed": "Wednesday",
+    "thu": "Thursday",
+    "fri": "Friday",
+    "sat": "Saturday"
+  },
+  "daysShort": {
+    "sun": "Sun",
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat"
+  },
+  "closed": "Closed"
 }

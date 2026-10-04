@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
+import { canObserve, observeReveal, unobserveReveal } from '@/lib/reveal-observer';
+
 type RevealProps = {
   children: ReactNode;
   /** Stagger in milliseconds. */
@@ -13,10 +15,10 @@ type RevealProps = {
 /**
  * Fade-and-rise reveal on scroll (PRD 4.5).
  *
- * A single IntersectionObserver per element is deliberately avoided in favour
- * of one shared observer, and the CSS transition lives in globals.css keyed off
- * `data-reveal`. Elements start hidden in CSS, so if JS never runs the content
- * is revealed by the `no-js` fallback below.
+ * All reveals share a single IntersectionObserver (see lib/reveal-observer).
+ * Elements start hidden in CSS, so when JS never runs the layout's noscript
+ * rule reveals them and when the observer is unsupported the callback below
+ * schedules the reveal on the next frame instead.
  */
 export function Reveal({
   children,
@@ -31,26 +33,23 @@ export function Reveal({
     const node = ref.current;
     if (!node) return;
 
-    if (typeof IntersectionObserver === 'undefined') {
-      setShown(true);
-      return;
+    // No observer support: skip straight to visible rather than risk the
+    // content staying hidden forever.
+    if (!canObserve()) {
+      const frame = requestAnimationFrame(() => setShown(true));
+      return () => cancelAnimationFrame(frame);
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setShown(true);
-            observer.disconnect();
-          }
-        }
-      },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
-    );
+    const reveal = (entry: IntersectionObserverEntry) => {
+      if (!entry.isIntersecting) return;
 
-    observer.observe(node);
+      setShown(true);
+      unobserveReveal(node);
+    };
 
-    return () => observer.disconnect();
+    observeReveal(node, reveal);
+
+    return () => unobserveReveal(node);
   }, []);
 
   return (

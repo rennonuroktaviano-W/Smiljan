@@ -230,7 +230,7 @@ function renderSvg({
   silhouette,
   label
 }) {
-  const [tint, mid, deep, ink] = RAMP[accentKey];
+  const [tint, mid, deep] = RAMP[accentKey];
   const seedValue = hash(seed);
   const cx = width / 2;
   const cy = height / 2;

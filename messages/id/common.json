@@ -10,5 +10,24 @@
   ],
   "priceFrom": "Mulai dari",
   "close": "Tutup",
-  "learnMore": "Selengkapnya"
+  "learnMore": "Selengkapnya",
+  "days": {
+    "sun": "Minggu",
+    "mon": "Senin",
+    "tue": "Selasa",
+    "wed": "Rabu",
+    "thu": "Kamis",
+    "fri": "Jumat",
+    "sat": "Sabtu"
+  },
+  "daysShort": {
+    "sun": "Min",
+    "mon": "Sen",
+    "tue": "Sel",
+    "wed": "Rab",
+    "thu": "Kam",
+    "fri": "Jum",
+    "sat": "Sab"
+  },
+  "closed": "Tutup"
 }

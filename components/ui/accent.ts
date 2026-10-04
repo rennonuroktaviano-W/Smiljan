@@ -66,6 +66,14 @@ export function accentOf(name: AccentKey) {
   return accent[name];
 }
 
+/**
+ * Card surface for a tinted pull-quote / info panel. Extracted so every call
+ * site emits a literal class string Tailwind can see.
+ */
+export function accentSurface(name: AccentKey): string {
+  return accent[name].soft;
+}
+
 /** Ordered accent rotation used when a section shows several cards. */
 export const accentRotation: AccentKey[] = [
   'maroon',

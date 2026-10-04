@@ -16,8 +16,19 @@ export function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  // Tracks which route the drawer was last opened on, so it can close itself
+  // on navigation without an effect.
+  const [menuPath, setMenuPath] = useState(pathname);
 
   const isHome = pathname === '/';
+
+  // Adjusting state during render (rather than in an effect) is the documented
+  // way to reset state when a value changes — see react.dev "You Might Not Need
+  // an Effect".
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -27,11 +38,6 @@ export function Navbar() {
 
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
-  // Close the drawer whenever the route changes.
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   // Lock body scroll while the mobile drawer is open.
   useEffect(() => {

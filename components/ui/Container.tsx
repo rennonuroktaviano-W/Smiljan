@@ -31,8 +31,8 @@ export function Container({
 
 type SectionProps = {
   children: ReactNode;
-  /** `plain` = page background, `alt` = raised cream, `accent` = colour block. */
-  tone?: 'plain' | 'alt' | 'ink' | 'maroon' | 'olive' | 'teal' | 'terracotta';
+  /** `plain` = page background, `alt` = muted, `surface` = raised card tone. */
+  tone?: 'plain' | 'alt' | 'surface' | 'ink' | 'maroon' | 'olive' | 'teal' | 'terracotta';
   className?: string;
   id?: string;
   /** Vertical rhythm. */
@@ -42,6 +42,7 @@ type SectionProps = {
 const tones = {
   plain: 'bg-bg text-ink',
   alt: 'bg-bg-alt text-ink',
+  surface: 'bg-surface text-ink',
   ink: 'bg-espresso text-cream',
   maroon: 'bg-maroon text-cream',
   olive: 'bg-olive text-cream',
