@@ -1,7 +1,40 @@
 {
   "meta": {
     "title": "Contact",
-    "description": "Reach Smiljan on WhatsApp, email or Instagram."
+    "description": "Reach Smiljan on WhatsApp, email or Instagram. See opening hours and answers to common questions."
   },
-  "placeholder": "This page is being written."
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "description": "WhatsApp is the fastest way to reach us. We usually reply during opening hours."
+  },
+  "info": {
+    "title": "Contact details",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "address": "Address",
+    "responseTime": "Response time",
+    "responseValue": "1-2 hours",
+    "responseNote": "Monday to Sunday, 08.00-22.00"
+  },
+  "form": {
+    "title": "Send a message",
+    "description": "Write your question, then send it over WhatsApp.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "message": "Message",
+    "messagePlaceholder": "What would you like to ask?",
+    "submit": "Send over WhatsApp",
+    "afterSubmit": "Your message opens in WhatsApp, ready to send."
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid email address.",
+    "tooLong": "This is too long."
+  },
+  "faq": {
+    "eyebrow": "Common questions",
+    "title": "What people ask most"
+  }
 }

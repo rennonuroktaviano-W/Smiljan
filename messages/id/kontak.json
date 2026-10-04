@@ -1,7 +1,40 @@
 {
   "meta": {
     "title": "Kontak",
-    "description": "Hubungi Smiljan lewat WhatsApp, email, atau Instagram."
+    "description": "Hubungi Smiljan lewat WhatsApp, email, atau Instagram. Lihat jam buka dan jawaban pertanyaan umum."
   },
-  "placeholder": "Halaman ini sedang ditulis."
+  "hero": {
+    "eyebrow": "Kontak",
+    "title": "Hubungi kami",
+    "description": "Cara tercepat adalah WhatsApp. Kami biasanya membalas pada jam kerja."
+  },
+  "info": {
+    "title": "Detail kontak",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "address": "Alamat",
+    "responseTime": "Waktu balas",
+    "responseValue": "1-2 jam",
+    "responseNote": "Senin-Minggu, 08.00-22.00"
+  },
+  "form": {
+    "title": "Kirim pesan",
+    "description": "Tulis pertanyaan Anda, lalu kirim lewat WhatsApp.",
+    "name": "Nama",
+    "namePlaceholder": "Nama Anda",
+    "message": "Pesan",
+    "messagePlaceholder": "Apa yang ingin Anda tanyakan?",
+    "submit": "Kirim lewat WhatsApp",
+    "afterSubmit": "Pesan Anda terbuka di WhatsApp dan siap dikirim."
+  },
+  "validation": {
+    "required": "Wajib diisi.",
+    "email": "Masukkan alamat email yang valid.",
+    "tooLong": "Terlalu panjang."
+  },
+  "faq": {
+    "eyebrow": "Pertanyaan umum",
+    "title": "Yang paling sering ditanyakan"
+  }
 }
