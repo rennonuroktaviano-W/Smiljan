@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -157,14 +158,13 @@ export function GalleryExplorer({ items, locale }: GalleryExplorerProps) {
               aria-haspopup="dialog"
               className="group block w-full break-inside-avoid overflow-hidden rounded-card bg-bg-alt"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={item.src}
                 alt={pick(item.alt, locale)}
                 width={item.width}
                 height={item.height}
-                loading="lazy"
-                decoding="async"
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                unoptimized={item.src.endsWith('.svg')}
                 className="w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
               />
               <span className="sr-only">{pick(item.caption, locale)}</span>
@@ -188,18 +188,24 @@ export function GalleryExplorer({ items, locale }: GalleryExplorerProps) {
           <div className="flex flex-col gap-4">
             <div className="relative overflow-hidden rounded-card">
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={current.id}
-                  src={current.src}
-                  alt={pick(current.alt, locale)}
-                  width={current.width}
-                  height={current.height}
                   initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.22 }}
-                  className="mx-auto max-h-[72dvh] w-auto object-contain"
-                />
+                  className="flex justify-center"
+                >
+                  <Image
+                    src={current.src}
+                    alt={pick(current.alt, locale)}
+                    width={current.width}
+                    height={current.height}
+                    sizes="90vw"
+                    unoptimized={current.src.endsWith('.svg')}
+                    className="max-h-[72dvh] w-auto object-contain"
+                  />
+                </motion.div>
               </AnimatePresence>
             </div>
 
