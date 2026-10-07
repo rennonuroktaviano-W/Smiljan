@@ -26,7 +26,8 @@
     "message": "Pesan",
     "messagePlaceholder": "Apa yang ingin Anda tanyakan?",
     "submit": "Kirim lewat WhatsApp",
-    "afterSubmit": "Pesan Anda terbuka di WhatsApp dan siap dikirim."
+    "afterSubmit": "Pesan Anda terbuka di WhatsApp dan siap dikirim.",
+    "failed": "Gagal mengirim. Periksa koneksi Anda lalu coba lagi."
   },
   "validation": {
     "required": "Wajib diisi.",

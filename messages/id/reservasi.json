@@ -23,6 +23,7 @@
     "notesPlaceholder": "Meja di dekat jendela, kursi bayi, alergi tertentu, dan sebagainya.",
     "submit": "Lanjut ke WhatsApp",
     "afterSubmit": "Pesan Anda terbuka di WhatsApp dan siap dikirim.",
+    "failed": "Gagal mengirim. Periksa koneksi Anda lalu coba lagi.",
     "summary": {
       "date": "Tanggal",
       "time": "Jam",

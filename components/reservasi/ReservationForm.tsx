@@ -1,17 +1,16 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useMemo, useState } from 'react';
 
+import { postJson } from '@/lib/api';
 import {
   MAX_GUESTS,
-  formatReservationMessage,
   reservationSchema,
   reservationSlots,
   todayInCafeTimezone
 } from '@/lib/reservation';
-import { whatsappLink } from '@/lib/whatsapp';
 
 import { Button } from '../ui/Button';
 import { WhatsappIcon } from '../ui/BrandIcons';
@@ -53,17 +52,20 @@ const EMPTY: FormState = {
 /**
  * Reservation form — PRD F-03.
  *
- * On success it hands off to WhatsApp with the message pre-filled, so there is
- * no backend to maintain for phase one. Validation runs through zod first and
- * every issue is surfaced next to its field.
+ * Validates with zod in the browser for instant feedback, then posts to
+ * `/api/reservasi` where the same schema runs again (PRD 7 — server-side
+ * validation). The response carries a WhatsApp deep link, built on the
+ * server, that is opened on success — no database to maintain in phase one.
  */
 export function ReservationForm() {
   const t = useTranslations('reservasi.form');
   const tValidation = useTranslations('reservasi.validation');
-  const tSummary = useTranslations('reservasi.form.summary');
+  const locale = useLocale();
 
   const [values, setValues] = useState<FormState>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const minDate = useMemo(() => todayInCafeTimezone(), []);
 
@@ -71,17 +73,19 @@ export function ReservationForm() {
     setValues((previous) => ({ ...previous, [key]: value }));
     // Clear the error as soon as the visitor starts fixing the field.
     setErrors((previous) => ({ ...previous, [key]: undefined }));
+    setFailed(false);
   };
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     // Honeypot: a real visitor never sees this field, so anything in it is a
     // bot. Silently do nothing rather than telling the bot it was caught.
     const form = new FormData(event.currentTarget);
-    if (String(form.get('company') ?? '').trim() !== '') return;
+    const company = String(form.get('company') ?? '').trim();
+    if (company !== '') return;
 
-    const result = reservationSchema.safeParse({
+    const parsed = reservationSchema.safeParse({
       name: values.name,
       whatsapp: values.whatsapp,
       date: values.date,
@@ -90,10 +94,10 @@ export function ReservationForm() {
       notes: values.notes
     });
 
-    if (!result.success) {
+    if (!parsed.success) {
       const next: Errors = {};
 
-      for (const issue of result.error.issues) {
+      for (const issue of parsed.error.issues) {
         const field = issue.path[0] as keyof Errors;
         const code = issue.message as (typeof ISSUE_KEYS)[number];
 
@@ -113,16 +117,44 @@ export function ReservationForm() {
       return;
     }
 
-    const body = formatReservationMessage(result.data, {
-      date: tSummary('date'),
-      time: tSummary('time'),
-      guests: tSummary('guests'),
-      notes: tSummary('notes')
+    setSending(true);
+    setFailed(false);
+
+    const result = await postJson<{ ok: true; waUrl: string }>('/api/reservasi', {
+      ...parsed.data,
+      locale,
+      company
     });
 
-    const intro = `${result.data.name}\n${body}`;
+    setSending(false);
 
-    window.open(whatsappLink(intro), '_blank', 'noopener,noreferrer');
+    if (!result.ok) {
+      if (result.issues) {
+        const next: Errors = {};
+
+        for (const issue of result.issues) {
+          const field = issue.field as keyof Errors;
+
+          if (
+            !next[field] &&
+            (ISSUE_KEYS as readonly string[]).includes(issue.code as never)
+          ) {
+            next[field] = tValidation(issue.code as (typeof ISSUE_KEYS)[number]);
+          }
+        }
+
+        setErrors(next);
+
+        const firstField = Object.keys(next)[0];
+        if (firstField) document.getElementById(firstField)?.focus();
+      } else {
+        setFailed(true);
+      }
+
+      return;
+    }
+
+    window.open(result.data.waUrl, '_blank', 'noopener,noreferrer');
   }
 
   return (
@@ -254,10 +286,14 @@ export function ReservationForm() {
           />
         </div>
 
-        <Button type="submit" variant="primary" size="lg" className="w-full">
+        <Button type="submit" variant="primary" size="lg" className="w-full" disabled={sending}>
           <WhatsappIcon className="size-4" />
           {t('submit')}
         </Button>
+
+        <p role="alert" className="min-h-4 text-center text-xs font-medium text-maroon">
+          {failed ? t('failed') : ''}
+        </p>
 
         <p className="text-center text-xs text-ink-muted">
           {t('afterSubmit')}

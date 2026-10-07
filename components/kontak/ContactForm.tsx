@@ -3,17 +3,13 @@
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
-import { z } from 'zod';
+
+import { postJson } from '@/lib/api';
+import { contactSchema } from '@/lib/contact';
 
 import { Button } from '../ui/Button';
 import { WhatsappIcon } from '../ui/BrandIcons';
 import { Field, TextArea, TextInput } from '../form/Field';
-import { whatsappLink } from '@/lib/whatsapp';
-
-const contactSchema = z.object({
-  name: z.string().trim().min(2, 'required').max(80, 'tooLong'),
-  message: z.string().trim().min(10, 'required').max(1000, 'tooLong')
-});
 
 const ISSUE_KEYS = ['required', 'tooLong'] as const;
 
@@ -22,8 +18,9 @@ type Errors = Partial<Record<'name' | 'message', string>>;
 /**
  * Contact form — PRD F-07.
  *
- * Same handoff as the reservation form: validate with zod, then open WhatsApp
- * with the message ready to send. No backend needed for phase one.
+ * Validates with zod in the browser, then posts to `/api/kontak` where the
+ * same schema runs again before the server hands back a WhatsApp deep link
+ * with the message ready to send.
  */
 export function ContactForm() {
   const t = useTranslations('kontak.form');
@@ -32,19 +29,22 @@ export function ContactForm() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [errors, setErrors] = useState<Errors>({});
+  const [sending, setSending] = useState(false);
+  const [failed, setFailed] = useState(false);
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const form = new FormData(event.currentTarget);
-    if (String(form.get('company') ?? '').trim() !== '') return;
+    const company = String(form.get('company') ?? '').trim();
+    if (company !== '') return;
 
-    const result = contactSchema.safeParse({ name, message });
+    const parsed = contactSchema.safeParse({ name, message });
 
-    if (!result.success) {
+    if (!parsed.success) {
       const next: Errors = {};
 
-      for (const issue of result.error.issues) {
+      for (const issue of parsed.error.issues) {
         const field = issue.path[0] as keyof Errors;
         const code = issue.message as (typeof ISSUE_KEYS)[number];
 
@@ -61,11 +61,43 @@ export function ContactForm() {
       return;
     }
 
-    window.open(
-      whatsappLink(`${result.data.name}\n${result.data.message}`),
-      '_blank',
-      'noopener,noreferrer'
-    );
+    setSending(true);
+    setFailed(false);
+
+    const result = await postJson<{ ok: true; waUrl: string }>('/api/kontak', {
+      ...parsed.data,
+      company
+    });
+
+    setSending(false);
+
+    if (!result.ok) {
+      if (result.issues) {
+        const next: Errors = {};
+
+        for (const issue of result.issues) {
+          const field = issue.field as keyof Errors;
+
+          if (
+            !next[field] &&
+            (ISSUE_KEYS as readonly string[]).includes(issue.code as never)
+          ) {
+            next[field] = tValidation(issue.code as (typeof ISSUE_KEYS)[number]);
+          }
+        }
+
+        setErrors(next);
+
+        const firstField = Object.keys(next)[0];
+        if (firstField) document.getElementById(firstField)?.focus();
+      } else {
+        setFailed(true);
+      }
+
+      return;
+    }
+
+    window.open(result.data.waUrl, '_blank', 'noopener,noreferrer');
   }
 
   return (
@@ -93,6 +125,7 @@ export function ContactForm() {
               onChange={(event) => {
                 setName(event.target.value);
                 setErrors((previous) => ({ ...previous, name: undefined }));
+                setFailed(false);
               }}
             />
           )}
@@ -109,6 +142,7 @@ export function ContactForm() {
               onChange={(event) => {
                 setMessage(event.target.value);
                 setErrors((previous) => ({ ...previous, message: undefined }));
+                setFailed(false);
               }}
             />
           )}
@@ -126,10 +160,14 @@ export function ContactForm() {
           />
         </div>
 
-        <Button type="submit" variant="primary" size="lg" className="w-full">
+        <Button type="submit" variant="primary" size="lg" className="w-full" disabled={sending}>
           <WhatsappIcon className="size-4" />
           {t('submit')}
         </Button>
+
+        <p role="alert" className="min-h-4 text-center text-xs font-medium text-maroon">
+          {failed ? t('failed') : ''}
+        </p>
 
         <p className="text-center text-xs text-ink-muted">{t('afterSubmit')}</p>
       </div>

@@ -26,7 +26,8 @@
     "message": "Message",
     "messagePlaceholder": "What would you like to ask?",
     "submit": "Send over WhatsApp",
-    "afterSubmit": "Your message opens in WhatsApp, ready to send."
+    "afterSubmit": "Your message opens in WhatsApp, ready to send.",
+    "failed": "Could not send. Check your connection and try again."
   },
   "validation": {
     "required": "This field is required.",

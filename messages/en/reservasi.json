@@ -23,6 +23,7 @@
     "notesPlaceholder": "Window table, high chair, any allergies, and so on.",
     "submit": "Continue to WhatsApp",
     "afterSubmit": "Your message opens in WhatsApp, ready to send.",
+    "failed": "Could not send. Check your connection and try again.",
     "summary": {
       "date": "Date",
       "time": "Time",
