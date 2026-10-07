@@ -253,7 +253,7 @@ export const menu: MenuItem[] = [
       en: 'Ceremonial grade matcha whisked into cold milk.'
     },
     price: 33000,
-    image: '/images/menu/iced-matcha-latte.svg',
+    image: '/images/menu/matcha-latte-iced.svg',
     accent: 'teal',
     badges: ['baru', 'vegan'],
     available: true,
