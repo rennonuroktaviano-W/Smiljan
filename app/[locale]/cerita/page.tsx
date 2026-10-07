@@ -11,6 +11,7 @@ import { Container, Section } from '@/components/ui/Container';
 import { Reveal } from '@/components/ui/Reveal';
 import { site } from '@/data/site';
 import { routing } from '@/i18n/routing';
+import { ogImages } from '@/lib/og';
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -25,7 +26,8 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `/${locale}/cerita` }
+    alternates: { canonical: `/${locale}/cerita` },
+    ...ogImages(t('title'), t('description'), locale)
   };
 }
 

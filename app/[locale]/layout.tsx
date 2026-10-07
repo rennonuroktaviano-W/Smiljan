@@ -11,6 +11,7 @@ import { Providers } from '@/components/layout/Providers';
 import { WhatsAppFloat } from '@/components/layout/WhatsAppFloat';
 import { site } from '@/data/site';
 import { routing } from '@/i18n/routing';
+import { ogImageUrl } from '@/lib/og';
 import { cafeSchema, websiteSchema } from '@/lib/schema';
 
 import '../globals.css';
@@ -46,6 +47,7 @@ export async function generateMetadata({
 }: LayoutProps<'/[locale]'>): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home.meta' });
+  const ogUrl = ogImageUrl(t('title'), locale);
 
   return {
     metadataBase: new URL(site.url),
@@ -83,10 +85,10 @@ export async function generateMetadata({
       url: `/${locale}`,
       images: [
         {
-          url: '/images/og-cover.svg',
+          url: ogUrl,
           width: 1200,
           height: 630,
-          alt: site.name
+          alt: t('title')
         }
       ]
     },
@@ -94,7 +96,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['/images/og-cover.svg']
+      images: [ogUrl]
     },
     robots: {
       index: true,

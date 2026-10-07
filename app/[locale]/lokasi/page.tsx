@@ -10,6 +10,7 @@ import { OpenStatus } from '@/components/ui/OpenStatus';
 import { Reveal } from '@/components/ui/Reveal';
 import { site } from '@/data/site';
 import { routing } from '@/i18n/routing';
+import { ogImages } from '@/lib/og';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export function generateStaticParams() {
@@ -32,7 +33,8 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `/${locale}/lokasi` }
+    alternates: { canonical: `/${locale}/lokasi` },
+    ...ogImages(t('title'), t('description'), locale)
   };
 }
 

@@ -10,6 +10,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { responseTime, site } from '@/data/site';
 import { faqs } from '@/data/faq';
 import { routing } from '@/i18n/routing';
+import { ogImages } from '@/lib/og';
 import { whatsappBareLink } from '@/lib/whatsapp';
 
 export function generateStaticParams() {
@@ -25,7 +26,8 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `/${locale}/kontak` }
+    alternates: { canonical: `/${locale}/kontak` },
+    ...ogImages(t('title'), t('description'), locale)
   };
 }
 

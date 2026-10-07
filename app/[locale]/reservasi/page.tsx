@@ -8,6 +8,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { WhatsappIcon } from '@/components/ui/BrandIcons';
 import { Button } from '@/components/ui/Button';
 import { routing } from '@/i18n/routing';
+import { ogImages } from '@/lib/og';
 import { whatsappLink } from '@/lib/whatsapp';
 
 export function generateStaticParams() {
@@ -23,7 +24,8 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: `/${locale}/reservasi` }
+    alternates: { canonical: `/${locale}/reservasi` },
+    ...ogImages(t('title'), t('description'), locale)
   };
 }
 
