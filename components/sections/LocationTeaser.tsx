@@ -1,7 +1,7 @@
 import { ArrowUpRight, MapPin } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
-import { mapsDirectionsUrl, site } from '@/data/site';
+import { mapsDirectionsUrl, mapsEmbedUrl, site } from '@/data/site';
 
 import { Button } from '../ui/Button';
 import { Container, Section } from '../ui/Container';
@@ -13,6 +13,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 /** Location + hours teaser — PRD 5.2.8. */
 export async function LocationTeaser() {
   const t = await getTranslations('home.location');
+  const tMap = await getTranslations('lokasi.map');
 
   return (
     <Section tone="plain" spacing="lg">
@@ -48,6 +49,17 @@ export async function LocationTeaser() {
                 </Button>
               </div>
             </address>
+
+            <div className="mt-10 overflow-hidden rounded-card border border-line bg-bg-alt">
+              <iframe
+                src={mapsEmbedUrl}
+                title={tMap('loading')}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                className="block h-64 w-full border-0"
+              />
+            </div>
           </Reveal>
 
           <Reveal className="lg:col-span-5" delay={120}>
