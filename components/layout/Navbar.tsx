@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
@@ -10,15 +10,21 @@ import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 import { desktopNavItems } from './nav-items';
 
+const FOCUSABLE =
+  'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
 export function Navbar() {
   const t = useTranslations('nav');
-  const pathname = usePathname();
+const pathname = usePathname();
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   // Tracks which route the drawer was last opened on, so it can close itself
   // on navigation without an effect.
   const [menuPath, setMenuPath] = useState(pathname);
+
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
 
   const isHome = pathname === '/';
 
@@ -29,6 +35,13 @@ export function Navbar() {
     setMenuPath(pathname);
     setMenuOpen(false);
   }
+
+  // Closing after navigation should not steal focus back to the toggle, because
+  // the visitor is now reading the page they asked for.
+  const closeMenu = (restoreFocus = true) => {
+    setMenuOpen(false);
+    if (restoreFocus) toggleRef.current?.focus();
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -51,11 +64,49 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  /*
+    Keyboard contract for the drawer: focus moves in on open, Tab cycles inside
+    it instead of escaping to the page behind, Escape closes and hands focus
+    back to the toggle. Without this, Tab walked straight into the content the
+    overlay was hiding.
+  */
   useEffect(() => {
     if (!menuOpen) return;
 
+    const drawer = drawerRef.current;
+    if (!drawer) return;
+
+    const focusable = () =>
+      Array.from(drawer.querySelectorAll<HTMLElement>(FOCUSABLE)).filter(
+        (node) => node.offsetParent !== null
+      );
+
+    focusable()[0]?.focus();
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false);
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const items = focusable();
+      if (items.length === 0) return;
+
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+
+      // The toggle lives outside the drawer, so it counts as "outside" too.
+      if (event.shiftKey && (active === first || !drawer.contains(active))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     document.addEventListener('keydown', onKeyDown);
@@ -85,7 +136,7 @@ export function Navbar() {
         </Link>
 
         <nav
-          aria-label={t('openMenu')}
+          aria-label={t('primary')}
           className="hidden items-center gap-1 lg:flex"
         >
           {desktopNavItems.map((item) => {
@@ -135,6 +186,7 @@ export function Navbar() {
           </Link>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}

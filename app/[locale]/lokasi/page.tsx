@@ -16,6 +16,13 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+/**
+ * "Today" in the hours table is resolved from the current date at render time,
+ * so the page needs periodic revalidation or the highlighted row would stay
+ * frozen at whatever day the build ran on.
+ */
+export const revalidate = 3600;
+
 export async function generateMetadata({
   params
 }: PageProps<'/[locale]/lokasi'>): Promise<Metadata> {

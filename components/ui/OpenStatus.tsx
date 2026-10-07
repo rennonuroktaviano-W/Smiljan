@@ -13,8 +13,9 @@ import { cn, formatTime } from '@/lib/utils';
  *
  * Pages are statically generated, so the status has to be resolved in the
  * browser — computing it on the server would freeze whatever time the build
- * happened to run. Until the first client tick we render the same neutral
- * pill, which keeps server and client markup identical.
+ * happened to run. Until the first client tick the badge renders a neutral
+ * placeholder inside the same live region, so server and client markup match
+ * and the resolved state is still announced.
  */
 export function OpenStatus({ showDetail = true }: { showDetail?: boolean }) {
   const t = useTranslations('footer');
@@ -32,52 +33,63 @@ export function OpenStatus({ showDetail = true }: { showDetail?: boolean }) {
     return () => window.clearInterval(timer);
   }, []);
 
-  if (!status) {
-    return (
-      <span className="inline-flex items-center gap-2 rounded-full border border-ink/15 px-3.5 py-2">
-        <Clock className="size-3.5" aria-hidden="true" />
-        <span className="label-caps">&nbsp;</span>
-      </span>
-    );
-  }
+  /*
+    Formatted once here so the sentence stays translatable ("Closes at {time}")
+    while the clock itself follows the visitor's locale.
+  */
+  const nextTime =
+    status?.next && showDetail
+      ? formatTime(status.next.time, locale, timeZone)
+      : null;
 
-  const detail = status.next
-    ? status.isOpen
-      ? t('closesAt', { time: status.next.time })
-      : t('opensAt', { time: status.next.time })
-    : '';
+  const detail =
+    status && nextTime
+      ? status.isOpen
+        ? t('closesAt', { time: nextTime })
+        : t('opensAt', { time: nextTime })
+      : '';
 
+  /*
+    The live region must stay mounted across the unresolved → resolved swap,
+    otherwise the first announcement never fires. Hence one wrapper, two
+    inner branches, and the placeholder only ever shows before the first tick.
+  */
   return (
     <span
+      role="status"
+      aria-live="polite"
       className={cn(
         'inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-full px-4 py-2',
-        status.isOpen
-          ? 'bg-olive/12 text-olive'
-          : 'bg-maroon/10 text-maroon'
+        !status && 'border border-ink/15',
+        status?.isOpen ? 'bg-olive/12 text-olive' : null,
+        status && !status.isOpen ? 'bg-maroon/10 text-maroon' : null
       )}
     >
-      <span className="relative flex size-2.5 shrink-0">
-        {status.isOpen ? (
-          <span className="absolute inline-flex size-full animate-ping rounded-full bg-olive opacity-60" />
-        ) : null}
-        <span
-          className={cn(
-            'relative inline-flex size-2.5 rounded-full',
-            status.isOpen ? 'bg-olive' : 'bg-maroon'
-          )}
-        />
-      </span>
+      {status ? (
+        <span className="relative flex size-2.5 shrink-0">
+          {status.isOpen ? (
+            <span className="absolute inline-flex size-full animate-ping rounded-full bg-olive opacity-60" />
+          ) : null}
+          <span
+            className={cn(
+              'relative inline-flex size-2.5 rounded-full',
+              status.isOpen ? 'bg-olive' : 'bg-maroon'
+            )}
+          />
+        </span>
+      ) : (
+        <Clock className="size-3.5 shrink-0" aria-hidden="true" />
+      )}
 
       <span className="label-caps">
-        {status.isOpen ? t('openNow') : t('closedNow')}
+        {status
+          ? status.isOpen
+            ? t('openNow')
+            : t('closedNow')
+          : '\u00a0'}
       </span>
 
-      {showDetail && status.next ? (
-        <span className="text-sm opacity-70">
-          {detail} ·{' '}
-          {formatTime(status.next.time, locale, timeZone)}
-        </span>
-      ) : null}
+      {detail ? <span className="text-sm opacity-70">{detail}</span> : null}
     </span>
   );
 }

@@ -16,7 +16,8 @@ type HoursTableProps = {
  *
  * "Today" is resolved in the café's own timezone rather than the server's, so
  * the highlighted row is right for Jakarta no matter where the build ran. The
- * static shell still renders correctly during prerender.
+ * static shell still renders correctly during prerender; the routes that use
+ * this opt into hourly ISR so the highlight cannot go stale.
  */
 export async function HoursTable({ compact = false, highlightDay }: HoursTableProps) {
   const t = await getTranslations('common');
