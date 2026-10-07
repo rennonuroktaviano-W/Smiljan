@@ -29,5 +29,10 @@
     "fri": "Jum",
     "sat": "Sab"
   },
-  "closed": "Tutup"
+  "closed": "Tutup",
+  "notice": {
+    "title": "Privasi & analitik",
+    "body": "Situs ini memakai analitik tanpa cookie, dan satu-satunya yang disimpan di perangkat Anda adalah preferensi tema serta bahasa.",
+    "dismiss": "Mengerti"
+  }
 }

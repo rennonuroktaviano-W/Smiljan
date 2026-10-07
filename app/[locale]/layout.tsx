@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { CookieNotice } from '@/components/layout/CookieNotice';
 import { Footer } from '@/components/layout/Footer';
 import { Navbar } from '@/components/layout/Navbar';
 import { Providers } from '@/components/layout/Providers';
@@ -169,6 +170,7 @@ export default async function LocaleLayout({
 
             <Footer />
             <WhatsAppFloat />
+            <CookieNotice />
             <Analytics />
           </Providers>
         </NextIntlClientProvider>

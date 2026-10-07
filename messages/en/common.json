@@ -29,5 +29,10 @@
     "fri": "Fri",
     "sat": "Sat"
   },
-  "closed": "Closed"
+  "closed": "Closed",
+  "notice": {
+    "title": "Privacy & analytics",
+    "body": "This site uses cookie-free analytics, and the only thing stored on your device is your theme and language preferences.",
+    "dismiss": "Got it"
+  }
 }
