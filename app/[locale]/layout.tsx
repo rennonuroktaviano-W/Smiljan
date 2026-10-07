@@ -152,7 +152,7 @@ export default async function LocaleLayout({
           would stay invisible, so force them visible up front.
         */}
         <noscript>
-          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}[data-page-transition]{opacity:1 !important;transform:none !important}`}</style>
         </noscript>
       </head>
       <body className={`${fraunces.variable} ${dmSans.variable} antialiased`}>
