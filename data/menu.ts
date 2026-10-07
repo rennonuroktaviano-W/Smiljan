@@ -281,11 +281,11 @@ export const menu: MenuItem[] = [
     name: { id: 'Matcha Ceremonial', en: 'Ceremonial Matcha' },
     category: 'non-kopi',
     description: {
-      id: 'Gradehighest matcha, diseduh traditional dengan whisk bambu.',
+      id: 'Matcha grade tertinggi, diseduh tradisional dengan whisk bambu.',
       en: 'Highest grade matcha whisked traditionally with a bamboo chasen.'
     },
     longDescription: {
-      id: 'Kami menyeduh matcha secara tradicional, satu mangkuk sekaligus, supaya foamnya tetap lembut dan rasanya tidak pahit.',
+      id: 'Kami menyeduh matcha secara tradisional, satu mangkuk sekaligus, supaya foamnya tetap lembut dan rasanya tidak pahit.',
       en: 'We whisk each bowl traditionally, one at a time, so the foam stays silky and never turns bitter.'
     },
     tastingNotes: { id: 'Rumput hijau, krim, slight sweetness', en: 'Green grass, cream, gentle sweetness' },
@@ -481,7 +481,7 @@ export const menu: MenuItem[] = [
     name: { id: 'Double Chocolate Cookie', en: 'Double Chocolate Cookie' },
     category: 'pastry',
     description: {
-      id: 'Cokelat belge dan dark, dengan garam laut di atas.',
+      id: 'Cokelat Belgia dan dark, dengan garam laut di atas.',
       en: 'Belgian and dark chocolate, finished with sea salt.'
     },
     price: 26000,

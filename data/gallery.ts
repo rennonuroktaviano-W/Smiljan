@@ -66,7 +66,7 @@ export const gallery: GalleryItem[] = [
     category: 'interior',
     caption: { id: 'Bar dan espresso machine', en: 'Bar and espresso machine' },
     alt: {
-      id: 'Bar Smiljan dengan espresso machine dan rak snsBean',
+      id: 'Bar Smiljan dengan espresso machine dan rak biji kopi',
       en: 'Smiljan bar with espresso machine and bean shelves'
     }
   },
