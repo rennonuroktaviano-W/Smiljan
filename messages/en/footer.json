@@ -18,5 +18,15 @@
   "opensAt": "Opens at {time}",
   "closesAt": "Closes at {time}",
   "openNow": "Open now",
-  "closedNow": "Closed now"
+  "closedNow": "Closed now",
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "New menu drops and the occasional offer.",
+    "placeholder": "you@email.com",
+    "submit": "Subscribe",
+    "sending": "Sending...",
+    "success": "Thank you! You are on the list.",
+    "invalid": "That email does not look right, please check it.",
+    "failed": "Could not send. Please try again in a moment."
+  }
 }

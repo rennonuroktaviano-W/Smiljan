@@ -18,5 +18,15 @@
   "opensAt": "Buka pukul {time}",
   "closesAt": "Tutup pukul {time}",
   "openNow": "Sedang buka",
-  "closedNow": "Sedang tutup"
+  "closedNow": "Sedang tutup",
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Kabar menu baru dan promo, sesekali saja.",
+    "placeholder": "email@kamu.com",
+    "submit": "Daftar",
+    "sending": "Mengirim...",
+    "success": "Terima kasih! Kamu sudah terdaftar.",
+    "invalid": "Emailnya belum benar, coba dicek lagi.",
+    "failed": "Gagal mengirim. Coba lagi beberapa saat lagi."
+  }
 }

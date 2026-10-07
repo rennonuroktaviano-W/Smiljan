@@ -8,6 +8,7 @@ import { Link } from '@/i18n/navigation';
 import { InstagramIcon } from '../ui/BrandIcons';
 import { Logo } from './Logo';
 import { LocaleSwitcher } from './LocaleSwitcher';
+import { NewsletterForm } from './NewsletterForm';
 import { navItems } from './nav-items';
 import { Container } from '../ui/Container';
 import { PatternDivider } from '../ui/PatternDivider';
@@ -45,6 +46,11 @@ export async function Footer() {
                 {socialProof.reviewCount}+ ulasan
               </span>
             </p>
+
+            <div className="mt-8">
+              <h2 className="label-caps text-saffron-soft">{t('newsletter.title')}</h2>
+              <NewsletterForm />
+            </div>
           </div>
 
           <div className="lg:col-span-2">
