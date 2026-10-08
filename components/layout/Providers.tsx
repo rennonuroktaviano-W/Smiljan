@@ -1,7 +1,6 @@
 'use client';
 
 import type { ReactNode } from 'react';
-import { MotionConfig } from 'motion/react';
 import { ThemeProvider } from 'next-themes';
 
 export function Providers({ children }: { children: ReactNode }) {
@@ -13,11 +12,11 @@ export function Providers({ children }: { children: ReactNode }) {
       disableTransitionOnChange
     >
       {/*
-        One place to honour prefers-reduced-motion for every framer-motion
-        component in the app (PRD 4.5) — the CSS block in globals.css cannot
-        reach transforms that motion drives from JS.
+        Motion's reducedMotion="user" scope lives in components/ui/MotionScope,
+        applied per page that uses motion — keeping `motion/react` out of this
+        root provider keeps it out of every page's bundle.
       */}
-      <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      {children}
     </ThemeProvider>
   );
 }

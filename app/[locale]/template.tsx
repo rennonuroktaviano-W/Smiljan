@@ -1,25 +1,18 @@
-'use client';
-
-import { motion } from 'motion/react';
-
 /**
  * Soft page transition — PRD 4.5.
  *
  * A template remounts on every navigation, so this plays once per route
- * change: a short fade with a small lift, matching the scroll-reveal easing
- * used across the site. `MotionConfig reducedMotion="user"` (see
- * Providers) strips the transform for visitors who ask for less motion,
- * leaving only the fade.
+ * change: a short fade with a small lift, matching the scroll-reveal easing.
+ * The animation is plain CSS (see `.page-enter` in globals.css) instead of a
+ * motion.js client animation, so the very first paint of a route does not
+ * have to wait for hydration — a JS-driven transition delayed the hero far
+ * enough that Lighthouse recorded the cookie notice as the LCP element.
+ * `prefers-reduced-motion` clamps the animation to 0.01ms.
  */
 export default function Template({ children }: { children: React.ReactNode }) {
   return (
-    <motion.div
-      data-page-transition=""
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div data-page-transition="" className="page-enter">
       {children}
-    </motion.div>
+    </div>
   );
 }

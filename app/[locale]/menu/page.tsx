@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { MenuExplorer } from '@/components/menu/MenuExplorer';
 import { Container, Section } from '@/components/ui/Container';
+import { MotionScope } from '@/components/ui/MotionScope';
 import { Reveal } from '@/components/ui/Reveal';
 import { menu } from '@/data/menu';
 import { routing } from '@/i18n/routing';
@@ -33,7 +34,7 @@ export default async function MenuPage({ params }: PageProps<'/[locale]/menu'>) 
   const tHero = await getTranslations('menu.hero');
 
   return (
-    <>
+    <MotionScope>
       <Section tone="plain" spacing="lg" className="pb-0 pt-36 sm:pt-44">
         <Container size="wide">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -54,6 +55,6 @@ export default async function MenuPage({ params }: PageProps<'/[locale]/menu'>) 
       <Section tone="plain" spacing="lg" className="pt-0">
         <MenuExplorer items={menu} />
       </Section>
-    </>
+    </MotionScope>
   );
 }

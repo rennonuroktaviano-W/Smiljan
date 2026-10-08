@@ -171,7 +171,7 @@ export default async function LocaleLayout({
             <Footer />
             <WhatsAppFloat />
             <CookieNotice />
-            <Analytics />
+            {process.env.VERCEL ? <Analytics /> : null}
           </Providers>
         </NextIntlClientProvider>
       </body>

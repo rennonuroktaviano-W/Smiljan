@@ -5,7 +5,6 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { postJson } from '@/lib/api';
-import { contactSchema } from '@/lib/contact';
 
 import { Button } from '../ui/Button';
 import { WhatsappIcon } from '../ui/BrandIcons';
@@ -18,9 +17,10 @@ type Errors = Partial<Record<'name' | 'message', string>>;
 /**
  * Contact form — PRD F-07.
  *
- * Validates with zod in the browser, then posts to `/api/kontak` where the
- * same schema runs again before the server hands back a WhatsApp deep link
- * with the message ready to send.
+ * Validates with zod in the browser (the schema is imported on demand so
+ * zod never enters the page's initial bundle), then posts to `/api/kontak`
+ * where the same schema runs again before the server hands back a WhatsApp
+ * deep link with the message ready to send.
  */
 export function ContactForm() {
   const t = useTranslations('kontak.form');
@@ -39,6 +39,7 @@ export function ContactForm() {
     const company = String(form.get('company') ?? '').trim();
     if (company !== '') return;
 
+    const { contactSchema } = await import('@/lib/contact');
     const parsed = contactSchema.safeParse({ name, message });
 
     if (!parsed.success) {

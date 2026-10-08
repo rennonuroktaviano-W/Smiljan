@@ -127,11 +127,7 @@ const pathname = usePathname();
       )}
     >
       <div className="mx-auto flex w-full max-w-[90rem] items-center justify-between gap-4 px-5 sm:px-8 lg:px-12">
-        <Link
-          href="/"
-          aria-label={t('home')}
-          className="rounded-full"
-        >
+        <Link href="/" className="rounded-full">
           <Logo tone={transparent ? 'cream' : 'ink'} />
         </Link>
 

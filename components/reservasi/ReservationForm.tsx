@@ -7,10 +7,9 @@ import { useMemo, useState } from 'react';
 import { postJson } from '@/lib/api';
 import {
   MAX_GUESTS,
-  reservationSchema,
   reservationSlots,
   todayInCafeTimezone
-} from '@/lib/reservation';
+} from '@/lib/reservation-shared';
 
 import { Button } from '../ui/Button';
 import { WhatsappIcon } from '../ui/BrandIcons';
@@ -52,10 +51,12 @@ const EMPTY: FormState = {
 /**
  * Reservation form — PRD F-03.
  *
- * Validates with zod in the browser for instant feedback, then posts to
- * `/api/reservasi` where the same schema runs again (PRD 7 — server-side
- * validation). The response carries a WhatsApp deep link, built on the
- * server, that is opened on success — no database to maintain in phase one.
+ * Validates with zod in the browser for instant feedback (the schema is
+ * imported on demand so zod never enters the page's initial bundle), then
+ * posts to `/api/reservasi` where the same schema runs again (PRD 7 —
+ * server-side validation). The response carries a WhatsApp deep link, built
+ * on the server, that is opened on success — no database to maintain in
+ * phase one.
  */
 export function ReservationForm() {
   const t = useTranslations('reservasi.form');
@@ -85,6 +86,7 @@ export function ReservationForm() {
     const company = String(form.get('company') ?? '').trim();
     if (company !== '') return;
 
+    const { reservationSchema } = await import('@/lib/reservation');
     const parsed = reservationSchema.safeParse({
       name: values.name,
       whatsapp: values.whatsapp,

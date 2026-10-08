@@ -3,18 +3,20 @@
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-import { newsletterSchema } from '@/lib/newsletter';
-
 import { Button } from '../ui/Button';
 
 type Status = 'idle' | 'sending' | 'done' | 'error';
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
 /**
  * Newsletter signup — PRD F-08.
  *
- * Posts to `/api/newsletter`, where the same zod schema and the honeypot are
- * enforced again on the server. Success replaces the form so the footer never
- * shows two competing inputs.
+ * Posts to `/api/newsletter`, where the zod schema and the honeypot are
+ * enforced on the server again. The inline check mirrors that schema with a
+ * plain pattern test: importing the schema here would pull zod (382 KB raw)
+ * into the layout bundle, i.e. into every page. Success replaces the form so
+ * the footer never shows two competing inputs.
  */
 export function NewsletterForm() {
   const t = useTranslations('footer.newsletter');
@@ -28,9 +30,9 @@ export function NewsletterForm() {
 
     const form = new FormData(event.currentTarget);
     const company = String(form.get('company') ?? '');
+    const value = email.trim();
 
-    const local = newsletterSchema.safeParse({ email, company });
-    if (!local.success) {
+    if (!value || value.length > 254 || !EMAIL_PATTERN.test(value)) {
       setStatus('error');
       setError(t('invalid'));
       return;
@@ -43,7 +45,7 @@ export function NewsletterForm() {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: local.data.email, company })
+        body: JSON.stringify({ email: value, company })
       });
 
       if (response.status === 400) {

@@ -117,9 +117,19 @@ filled in are discarded silently.
 
 ### Analytics
 
-`@vercel/analytics` is mounted in `app/[locale]/layout.tsx`. It reports nothing
-until the site is deployed on Vercel, so local development stays quiet. No cookie
-banner is needed for Vercel Analytics' cookieless mode.
+`@vercel/analytics` is mounted in `app/[locale]/layout.tsx` only when the
+build runs on Vercel (`process.env.VERCEL`), so local builds ship no analytics
+script at all. Vercel Analytics runs in cookieless mode; the one-time notice in
+`components/layout/CookieNotice.tsx` explains that to visitors anyway (PRD 5.9).
+
+### Bundle size
+
+Client bundles deliberately keep two heavy dependencies out of the initial
+parse: `motion/react` (scoped to pages that animate via
+`components/ui/MotionScope.tsx`) and `zod` (schemas are imported on demand in
+the form submit handlers, with pure helpers in `lib/reservation-shared.ts`).
+The page transition in `app/[locale]/template.tsx` is CSS-only so first paint
+never waits on hydration.
 
 ## Replacing placeholder content
 

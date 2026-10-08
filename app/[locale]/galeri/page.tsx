@@ -4,6 +4,7 @@ import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import { GalleryExplorer } from '@/components/gallery/GalleryExplorer';
 import { CtaBand } from '@/components/sections/CtaBand';
 import { Container, Section } from '@/components/ui/Container';
+import { MotionScope } from '@/components/ui/MotionScope';
 import { Reveal } from '@/components/ui/Reveal';
 import { gallery } from '@/data/gallery';
 import { routing } from '@/i18n/routing';
@@ -37,7 +38,7 @@ export default async function GaleriPage({
   const tHero = await getTranslations('galeri.hero');
 
   return (
-    <>
+    <MotionScope>
       <Section tone="plain" spacing="lg" className="pb-0 pt-36 sm:pt-44">
         <Container size="wide">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -59,6 +60,6 @@ export default async function GaleriPage({
       </Section>
 
       <CtaBand />
-    </>
+    </MotionScope>
   );
 }

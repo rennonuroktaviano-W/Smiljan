@@ -6,6 +6,7 @@ import { ContactForm } from '@/components/kontak/ContactForm';
 import { FaqAccordion } from '@/components/kontak/FaqAccordion';
 import { InstagramIcon, WhatsappIcon } from '@/components/ui/BrandIcons';
 import { Container, Section } from '@/components/ui/Container';
+import { MotionScope } from '@/components/ui/MotionScope';
 import { Reveal } from '@/components/ui/Reveal';
 import { responseTime, site } from '@/data/site';
 import { faqs } from '@/data/faq';
@@ -76,7 +77,7 @@ export default async function KontakPage({
   ] as const;
 
   return (
-    <>
+    <MotionScope>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -182,6 +183,6 @@ export default async function KontakPage({
       </Section>
 
       <FaqAccordion />
-    </>
+    </MotionScope>
   );
 }

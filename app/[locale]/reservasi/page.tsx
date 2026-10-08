@@ -4,6 +4,7 @@ import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { ReservationForm } from '@/components/reservasi/ReservationForm';
 import { Container, Section } from '@/components/ui/Container';
+import { MotionScope } from '@/components/ui/MotionScope';
 import { Reveal } from '@/components/ui/Reveal';
 import { WhatsappIcon } from '@/components/ui/BrandIcons';
 import { Button } from '@/components/ui/Button';
@@ -40,7 +41,7 @@ export default async function ReservasiPage({
   const tPrivate = await getTranslations('reservasi.private');
 
   return (
-    <>
+    <MotionScope>
       <Section tone="plain" spacing="lg" className="pb-0 pt-36 sm:pt-44">
         <Container size="wide">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -105,6 +106,6 @@ export default async function ReservasiPage({
           </div>
         </Container>
       </Section>
-    </>
+    </MotionScope>
   );
 }

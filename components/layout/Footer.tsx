@@ -115,7 +115,7 @@ export async function Footer() {
                   className="inline-flex items-center gap-2 text-sm text-cream/75 transition-colors hover:text-saffron"
                 >
                   {t('whatsapp')}
-                  <span className="text-cream/40">{site.whatsappDisplay}</span>
+                  <span className="text-cream/60">{site.whatsappDisplay}</span>
                   <ArrowUpRight className="size-3.5" aria-hidden="true" />
                 </a>
               </li>
@@ -152,7 +152,7 @@ export async function Footer() {
 
       {/* Oversized wordmark as an editorial anchor. */}
       <div aria-hidden="true" className="overflow-hidden">
-        <p className="translate-y-[22%] text-center font-display text-[19vw] leading-none font-semibold tracking-[0.06em] text-cream/[0.07] select-none">
+        <p className="translate-y-[22%] text-center font-display text-[19vw] leading-none font-semibold tracking-[0.06em] text-cream/40 select-none">
           SMILJAN
         </p>
       </div>
